@@ -47,21 +47,16 @@ export const App = () => {
 
   return (
   <>
-    <InputTodo todoText={todoText} onChange={onChangeTodoText} onClick={onClickAdd} />
-    <div className="incomplete-area">
-      <p className="title">未完了のTODO</p>
-      <ul>
-        {incompleteTodo.map((todo, index) => {
-          return (
-            <div key={todo} className="list-row">
-              <li>{todo}</li>
-              <button onClick={() => onClickComplete(index)} >完了</button>
-              <button onClick={() => onClickDelete(index)}>削除</button>
-            </div>
-            )
-          })}
-      </ul>
-    </div>
+    <InputTodo
+      todoText={todoText}
+      onChange={onChangeTodoText}
+      onClick={onClickAdd}
+    />
+    <incompleteTodo
+      todo={incompleteTodo}
+      onClickComplete={onClickComplete}
+      onClickDelete={onClickDelete}
+    />
     <div className="complete-area">
       <p className="title">完了のTODO</p>
       <ul>
